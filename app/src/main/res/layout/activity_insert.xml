@@ -6,5 +6,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".InsertActivity">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Név"
+        android:id="@+id/txtNev"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Leírás"
+        android:id="@+id/txtLeiras"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Elkeszetesi ido(perc)"
+        android:id="@+id/txtElkeszetesiIdo"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ár"
+        android:id="@+id/arTXT"/>
 
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Felvétel"
+    android:id="@+id/btnFelvetel"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vissza"
+        android:id="@+id/Visszabtn"/>
 </LinearLayout>

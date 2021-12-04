@@ -43,7 +43,7 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean felvetel(String nev, String leiras, int elkeszites, int ar) {
+    public boolean felvetel(String nev, String leiras, String elkeszites, String ar) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NEV, nev);
@@ -53,10 +53,9 @@ public class DbHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_NAME, null, values) != -1;
     }
 
-   public Cursor kereses(String ar) {
-       SQLiteDatabase db = this.getWritableDatabase();
-       String sql = "SELECT " + COL_NEV.trim() + " FROM " + TABLE_NAME + " WHERE " + COL_AR + " LIKE ?";
-       Cursor eredmeny = db.rawQuery(sql, new String[]{ar});
-       return eredmeny;
+
+   public Cursor listazas(String ar) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_AR + "< ?", new String[]{ar});
    }
 }

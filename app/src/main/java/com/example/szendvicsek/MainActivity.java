@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnKereses, btnFelvesz;
-    private EditText txtAr;
+    private static EditText txtAr;
     private DbHelper adatbazis;
+    public  static int ar = Integer.parseInt(txtAr.getText().toString());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,13 @@ public class MainActivity extends AppCompatActivity {
         });
         btnFelvesz.setOnClickListener( v -> {
             Intent felvetel = new Intent(MainActivity.this, InsertActivity.class);
-            startActivity(felvetel);
-            finish();
+            if(!txtAr.getText().toString().isEmpty()){
+                startActivity(felvetel);
+                finish();
+            }else {
+                Toast.makeText(this,"Nem lehet üres a mező", Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 
